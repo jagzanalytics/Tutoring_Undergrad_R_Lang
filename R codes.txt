@@ -1,0 +1,956 @@
+name<- "Dharmmie "
+print(name) 
+#class() to check the data type of the variable
+class(name)
+
+#You can also concatenate, or join, two or more elements, by using the paste() function.
+#To combine both text and a variable, R uses comma (,):
+
+name<-"David is not"
+traits<- "a good person"
+paste(name,traits)
+
+#for numbers
+
+num1<- 55
+num2<-60
+num1+num2
+
+#R allows you to assign the same value to multiple variables in one line:
+
+name<-nickname<-person<-"Dharmmie"
+
+#call out the variables
+
+name
+nickname
+person
+
+# Legal variable names:
+myvar <- "John"
+my_var <- "John"
+myVar <- "John"
+MYVAR <- "John"
+myvar2 <- "John"
+.myvar <- "John"
+
+# Illegal variable names:
+2myvar <- "John"
+my-var <- "John"
+my var <- "John"
+_my_var <- "John"
+my_v@ar <- "John"
+TRUE <- "John"
+
+#Basic data types in R can be divided into the following types:
+
+#numeric - (10.5, 55, 787)
+#integer - (1L, 55L, 100L, where the letter "L" declares this as an integer)
+#complex - (9 + 3i, where "i" is the imaginary part)
+#character (a.k.a. string) - ("k", "R is exciting", "FALSE", "11.5")
+#logical (a.k.a. boolean) - (TRUE or FALSE)
+
+# numeric
+x <- 10.5
+class(x)
+
+# integer
+x <- 1000L
+class(x)
+
+# complex
+x <- 9i + 3
+class(x)
+
+# character/string
+x <- "R is exciting"
+class(x)
+
+# logical/boolean
+x <- TRUE
+class(x)
+
+#TYPE CONVERSION 
+
+x <- 1L # integer
+y <- 2 # numeric
+
+# convert from integer to numeric:
+a <- as.numeric(x)
+
+# convert from numeric to integer:
+b <- as.integer(y)
+
+# print values of x and y
+x
+y
+
+# print the class name of a and b
+class(a)
+class(b)
+
+#The abs() function returns the absolute (positive) value of a number
+abs(-4.7)
+
+#The ceiling() function rounds a number upwards to its nearest integer, and the floor() function rounds a number downwards to its nearest integer, and returns the result:
+
+ceiling(1.4)
+
+floor(1.4)
+
+#You can assign a multiline string to a variable like this:
+
+me<- "I am Olaola
+I am a female
+I am the first and second born of my parent
+Finished from the University of Africa with a first second class lower"
+
+#If you want the line breaks to be inserted at the same position as in the code, use the cat() function
+cat(me)
+
+#to find the number of characters in a string, use the nchar() function
+nchar(me)
+
+#Use the grepl() function to check if a character or a sequence of characters are present in a string
+grepl("a", me)
+
+#The escape character allows you to use double quotes when you normally would not be allowed:
+
+str <- "We are the so-called \"Vikings\", from the north."
+str
+cat(str)
+
+#IF
+a <- 200
+b <- 33
+
+if (b > a) {
+  print ("b is greater than a")
+} else {
+  print("b is not greater than a")
+}
+
+#TRUE OR FALSE
+a <- 10
+b <- 9
+
+a > b
+a<b
+
+#The else if keyword is R's way of saying "if the previous conditions were not true, then try this condition":
+
+a <- 33
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print ("a and b are equal")
+}
+
+#The else keyword catches anything which isn't caught by the preceding conditions:
+
+a <- 200
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print("a and b are equal")
+} else {
+  print("a is greater than b")
+}
+
+#You can also use else without else if:
+
+a <- 200
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else {
+  print("b is not greater than a")
+}
+
+#You can also have if statements inside if statements, this is called nested if statements.
+
+x <- 25
+
+if (x > 20) {
+  print("Above twenty")
+  if (x > 30) {
+    print("and also above 30!")
+  } else {
+    print("but not above 30.")
+  }
+} else {
+  print("below 20.")
+}
+
+#The & symbol (and) is a logical operator, and is used to combine conditional statements:
+#Test if a is greater than b, AND if c is greater than a:
+
+a <- 200
+b <- 33
+c <- 500
+
+if (a > b & c > a) {
+  print("Both conditions are true")
+}
+
+#The | symbol (or) is a logical operator, and is used to combine conditional statements:
+#Test if a is greater than b, or if c is greater than a:
+
+a <- 200
+b <- 33
+c <- 500
+
+if (a > b | a > c) {
+  print("At least one of the conditions is true")
+}
+
+#WHILE LOOP
+i <- 1
+while (i < 10) {
+  print(i)
+  i <- i + 1
+}
+i <- 1
+while (i < 10) {
+  print(i)
+  i <- i + 2
+}
+
+#BREAK
+#Exit the loop if i is equal to 4.
+
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+  if (i == 4) {
+    break
+  }
+}
+
+#Exit the loop if i is equal to 12.
+
+i <- 1
+while (i < 15) {
+  print(i)
+  i <- i + 1
+  if (i == 12) {
+    break
+  }
+}
+
+#With the next statement, we can skip an iteration without terminating the loop:
+#Skip the value of 3:
+#When the loop passes the value 3, it will skip it and continue to loop.
+
+i <- 0
+while (i < 6) {
+  i <- i + 1
+  if (i == 3) {
+    next
+  }
+  print(i)
+}
+
+#If .. Else Combined with a While Loop
+#To demonstrate a practical example, let us say we play a game of bingo!!
+
+#Print "Bingo!" If the dice number is 6:
+
+dice <- 1
+while (dice <= 6) {
+  if (dice < 6) {
+    print("No Bingo")
+  } else {
+    print("Bingo!")
+  }
+  dice <- dice + 1
+}  
+
+#A for loop is used for iterating over a sequence:
+
+for (x in 1:10) {
+  print(x)
+}    
+#With the for loop we can execute a set of statements, once for each item in a vector, array, list, etc..
+#Print every item in a list:
+
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  print(x)
+}
+
+#With the break statement, we can stop the loop before it has looped through all the items:
+#Stop the loop at "cherry":
+
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  if (x == "cherry") {
+    break
+  }
+  print(x)
+}    
+
+#With the next statement, we can skip an iteration without terminating the loop:
+#Skip "banana":
+
+fruits <- list("apple", "banana", "cherry")
+
+for (x in fruits) {
+  if (x == "banana") {
+    next
+  }
+  print(x)
+}      
+
+#It is also possible to place a loop inside another loop. This is called a nested loop:
+#Print the adjective of each fruit in a list:
+
+adj <- list("red", "big", "tasty")
+fruits <- list("apple", "banana", "cherry")
+for (x in adj) 
+  for (y in fruits) 
+  { print(paste(x, y)) }    
+paste(x,y)
+
+#o create a function, use the function() keyword:
+
+my_function <- function() 
+  print("Hello World!")
+
+#By default, a function must be called with the correct number of arguments
+#Meaning that if your function expects 2 arguments, you have to call the function with 2 arguments, not more, and not less:
+# This function expects 2 arguments, and gets 2 arguments:
+
+my_function <- function(fname, lname) {
+  paste(fname, lname)
+}
+
+my_function("Peter", "Griffin")  
+
+#To let a function return a result, use the return() function:
+
+my_function <- function(x) {
+  return (5 * x)
+}
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9))    
+
+#Call a function within another function:
+
+#Nested_function <- function(2, 3) 
+a <- 2 + 3
+return(a)
+
+Nested_function(Nested_function(2,2), Nested_function(3,3)) 
+
+#RECURSION 
+
+tri_recursion <- function(k) {
+  if (k > 0) {
+    result <- k + tri_recursion(k - 1)
+    print(result)
+  } else {
+    result = 0
+    return(result)
+  }
+}
+tri_recursion(6)
+
+#global variables
+#Create a variable outside of a function and use it inside the function:
+
+txt <- "awesome"
+my_function <- function() {
+  paste("R is", txt)
+}
+
+my_function()
+
+#VECTORS
+# Vector of strings
+fruits <- c("banana", "apple", "guava")
+fruits
+
+# Vector of numerical values
+numbers <- c(1, 2, 3)
+numbers
+
+# Vector with numerical values in a sequence
+numbers <- 1:10
+numbers
+
+# Vector with numerical decimals in a sequence
+numbers1 <- 1.5:6.5
+numbers1
+
+# Vector with numerical decimals in a sequence where the last element is not used
+numbers2 <- 1.5:6.3
+numbers2
+
+# Vector of logical values
+log_values <- c(TRUE, FALSE, TRUE, FALSE)
+
+log_values
+
+#Vector Length
+#To find out how many items a vector has, use the length() function:
+
+fruits <- c("banana", "apple", "orange")
+
+length(fruits)
+
+#Sort a Vector
+#To sort items in a vector alphabetically or numerically, use the sort() function:
+
+fruits <- c("banana", "apple", "orange", "mango", "lemon")
+numbers <- c(13, 3, 5, 7, 20, 2)
+
+sort(fruits)  
+sort(numbers) 
+
+#you can also access multiple elements by referring to different index positions with the c() function:
+
+fruits <- c("banana", "apple", "orange", "mango", "lemon")
+fruits[c(1, 3)]
+
+#You can also use negative index numbers to access all items except the ones specified:
+
+fruits <- c("banana", "apple", "orange", "mango", "lemon")
+fruits[c(-1)]
+
+#To change the value of a specific item, refer to the index number:
+
+fruits <- c("banana", "apple", "orange", "mango", "lemon")
+fruits[1] <- "pear"
+
+fruits
+
+#To repeat vectors, use the rep() function:
+repeat_each <- rep(c(1,2,3),3)
+
+repeat_each
+
+#Repeat each value independently:
+
+repeat_indepent <- rep(c(1,2,3), times = c(5,2,1))
+repeat_indepent
+
+#LIST
+#A list in R can contain many different data types inside it. A list is a collection of data which is ordered and changeable.
+#To create a list, use the list() function
+
+names<-list('David','Promise','Seun')
+names
+
+#To change the value of a specific item, refer to the index number:
+
+names<-list('David','Promise','Seun')
+names[1] <- "Esther"
+
+names
+
+#To find out if a specified item is present in a list, use the %in% operator:
+#Check if "apple" is present in the list:
+
+thislist <- list("apple", "banana", "cherry")
+
+"apple" %in% thislist
+
+#To add an item to the end of the list, use the append() function:
+#Add "orange" to the list:
+
+thislist <- list("apple", "banana", "cherry")
+
+append(thislist, "orange")
+
+#To add an item to the right of a specified index, add "after=index number" in the append() function:
+#Add "orange" to the list after "banana" (index 2):
+
+thislist <- list("apple", "banana", "cherry")
+
+append(thislist, "orange", after = 2)
+
+#Remove List Items
+#You can also remove list items. The following example creates a new, updated list without an "apple" item:
+#Remove "apple" from the list:
+
+thislist <- list("apple", "banana", "cherry")
+thislist
+
+newlist <- thislist[-1]
+newlist
+
+name<-list('Cornelius','Halima','Olamilekan')
+name
+
+newname<-name[-2]
+newname
+
+#to combine list
+
+name<-list('Cornelius','Halima','Olamilekan')
+name
+year<-list(23,21,22)
+year
+name_year<-c(name,year)
+name_year
+
+#MATRIX
+#You can also create a matrix with strings:
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+thismatrix
+
+#accessig value in a matrix
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+thismatrix
+thismatrix[1, 2]
+
+#to access the row
+thismatrix[2,]
+
+#to access the column
+thismatrix[,2]
+
+#Access More Than One Row
+thismatrix[c(1,2),]
+
+#Access More Than One Column
+thismatrix[, c(1,2)]
+
+#Use the rbind() function to add additional rows in a Matrix:
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange","grape", "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
+
+newmatrix <- rbind(thismatrix, c("strawberry", "blueberry", "raspberry"))
+newmatrix
+
+#Use the c() function to remove rows and columns in a Matrix:
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange", "mango", "pineapple"), nrow = 3, ncol =2)
+
+#Remove the first row and the first column
+thismatrix <- thismatrix[-c(1), -c(1)]
+
+thismatrix
+
+#Use the dim() function to find the number of rows and columns in a Matrix:
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+dim(thismatrix)
+
+#We can use the array() function to create an array, and the dim parameter to specify the dimensions
+# An array with one dimension with values ranging from 1 to 24
+
+thisarray <- c(1:24)
+thisarray
+
+# An array with more than one dimension
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray
+
+multiarrays<-array(thisarray,dim=c(5,4,3))
+multiarrays
+
+#You can access the array elements by referring to the index position. You can use the [] brackets to access the desired elements from an array
+
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+multiarray[2, 3, 2]
+multiarrays[3,4,3]
+
+#You can also access the whole row or column from a matrix in an array, by using the c() function:
+
+thisarray <- c(1:24)
+thisarray
+
+# Access all the items from the first row from matrix one
+#A comma (,) after c() means that we want to access the row.
+
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[c(1),,1]
+
+# Access all the items from the first column from matrix one
+#A comma (,) before c() means that we want to access the column.
+
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[,c(1),1]
+
+#Use the dim() function to find the amount of rows and columns in an array:
+
+thisarray <- c(1:24)
+thisarray
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+dim(multiarray)
+
+#You can loop through the array items by using a for loop:
+
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+for(x in multiarray){
+  print(x)
+}
+
+#DATAFRAME
+
+name<-c('Cornelius','Halima','Olamilekan')
+name
+
+color<-c('Black','Blue','Purple')
+color
+
+style<-c('Cargo','Crop top','Face cap')
+style
+
+people<-data.frame(name,color,style)
+people
+
+View(people)
+
+#OR
+peoples<-data.frame(name=c('Kate','Demi'), color=c('Blue','Red'),style=c('Gowns','Skirts'))
+peoples
+
+#To summarize data from a data frame 
+
+summary(people)
+
+# We Can use [],[[]],$ to access columns un a data frame 
+
+people[1]
+people [['style']]
+people$color
+
+#To add rows
+
+people<-data.frame(name=c('Kate','Demi'), color=c('Blue','Red'),style=c('Gowns','Skirts'))
+people
+
+new_people<-rbind(people,c('Daisi','Green','Head banf'))
+new_people
+
+#to replace a value
+
+new_people[3,3]<-'Headband'
+new_people
+
+#To add columns
+new_people_col<-cbind(people,age=c(20,25))
+new_people_col
+
+newpeople<-cbind(new_people,age= c(19,21,25))
+newpeople
+
+#TO COMBINE DATAFRAME VERTICALLY
+#has to be same number of  rows 
+
+newdataframe<-rbind(people,new_people)
+newdataframe
+
+#TO COMBINE DATAFRAME HORIZONTALLY
+#has to be same number of values
+
+Data_Frame3 <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame4 <- data.frame (
+  Steps = c(3000, 6000, 2000),
+  Calories = c(300, 400, 300)
+)
+
+New_Data_Frame1 <- cbind(Data_Frame3, Data_Frame4)
+New_Data_Frame1
+
+students<-data.frame(Name=c('Sola','Abigeal','Dolapo'), Course=c("AEC","CPP","ANS"),Score=c(60,75,39))
+students
+
+studs<-data.frame(Grade=c('B','A','F'), Comment =c('Pass','Distinction','Fail'))
+studs
+
+new_student<-cbind(students,studs)
+new_student
+
+View(new_student)
+
+#FACTORS
+#This is used to categorize data
+
+# Create a factor
+music_genre <- factor(c("Jazz", "Rock", "Classic",
+                        "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+music_genre
+levels(music_genre)
+
+music_genre[3]<-"Pop"
+music_genre
+
+#The plot() function is used to draw points (markers) in a diagram.
+#Draw two points in the diagram, one at position (1, 3) and one in position (8, 10):
+
+plot(c(1, 8), c(3, 10))
+
+#You can plot as many points as you like, just make sure you have the same number of points in both axis:
+
+plot(c(1, 2, 3, 4, 5), c(3, 7, 8, 9, 12))
+
+#For better organization, when you have many values, it is better to use variables:
+
+x <- c(1, 2, 3, 4, 5)
+y <- c(3, 7, 8, 9, 12)
+
+plot(x, y)
+
+#If you want to draw dots in a sequence, on both the x-axis and the y-axis, use the : operator:
+
+plot(1:10)
+
+#The plot() function also takes a type parameter with the value l to draw a line to connect all the points in the diagram:
+
+plot(1:10, type="l")
+
+#The plot() function also accept other parameters, such as main, xlab and ylab 
+#if you want to customize the graph with a main title and different labels for the x and y-axis:
+
+plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis")
+
+#GRAPH APPEARANCE
+#COLOR
+#Use col="color" to add a color to the points:
+
+plot(1:10, col="red")
+
+#SIZE
+#Use cex=number to change the size of the points 
+(1 is default, while 0.5 means 50% smaller, and 2 means 100% larger):
+
+plot(1:10, cex=2)
+
+#POINT SHAPE
+#Use pch with a value from 0 to 25 to change the point shape format:
+
+plot(1:10, pch=25, cex=2)
+
+#The values of the pch parameter ranges from 0 to 25, which means that we can choose up to 26 different types of point shapes:
+#under R
+
+#The line color is black by default. To change the color, use the col parameter:
+
+plot(1:10, type="l", col="blue")
+
+#To change the width of the line, use the lwd parameter (1 is default, while 0.5 means 50% smaller, and 2 means 100% larger):
+
+plot(1:10, type="l", lwd=3)
+
+#The line is solid by default. Use the lty parameter with a value from 0 to 6 to specify the line format.
+
+#For example, lty=3 will display a dotted line instead of a solid line:
+
+plot(1:10, type="l", lwd=5, lty=4)
+
+#Available parameter values for lty:
+
+#0 removes the line
+#1 displays a solid line
+#2 displays a dashed line
+#3 displays a dotted line
+#4 displays a "dot dashed" line
+#5 displays a "long dashed" line
+#6 displays a "two dashed" line
+
+#To display more than one line in a graph, use the plot() function together with the lines() function:
+
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+
+plot(line1, type = "l", col = "blue")
+lines(line2, type="l", col = "red")
+
+#R SCATTER PLOTS
+#A "scatter plot" is a type of plot used to display the relationship between two numerical variables, and plots one dot for each observation.
+
+#It needs two vectors of same length, one for the x-axis (horizontal) and one for the y-axis (vertical):
+
+x <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+plot(x, y)
+
+#The observation in the example above should show the result of 12 cars passing by.
+
+#That might not be clear for someone who sees the graph for the first time, 
+#so let's add a header and different labels to describe the scatter plot better:
+
+x <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+plot(x, y, main="Observation of Cars", xlab="Car age", ylab="Car speed")
+
+#To compare the plot with another plot, use the points() function
+#Draw two plots on the same figure:
+
+# day one, the age and speed of 12 cars:
+x1 <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y1 <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+# day two, the age and speed of 15 cars:
+x2 <- c(2,2,8,1,15,8,12,9,7,3,11,4,7,14,12)
+y2 <- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)
+
+plot(x1, y1, main="Observation of Cars",
+     xlab="Car age", ylab="Car speed", col="red", cex=2)
+points(x2, y2, col="blue", cex=2)
+
+#Note: To be able to see the difference of the comparison, you must assign different colors 
+#to the plots (by using the col parameter). Red represents the values of day 1, 
+#while blue represents day 2. Note that we have also added the cex parameter to increase the size of the dots.
+
+#R Pie Charts
+#Use the pie() function to draw pie charts
+
+y<-c(20,40,60,80)
+pie(y)
+
+#You can change the start angle of the pie chart with the init.angle parameter.
+
+#The value of init.angle is defined with angle in degrees, where default angle is 0.
+#Start the first pie at 90 degrees:
+# Create a vector of pies
+y<-c(20,40,60,80)
+
+# Display the pie chart and start the first pie at 90 degrees
+pie(y, init.angle = 180)
+
+#Use the label parameter to add a label to the pie chart, and use the main parameter to add a header
+# Create a vector of pies
+y<-c(20,40,60,80,100)
+
+# Create a vector of labels
+mylabel<-c('Itel','Tecno','Infinix','Iphone','Samsung')
+pie(y,label=mylabel,main='PHONES')
+
+# Create a vector of colors
+colors<-c('white','gray','blue','red','gold')
+pie(y,label=mylabel,main='PHONES',col=colors)
+
+#To add a list of explanation for each pie, use the legend() function
+legend('bottomright',mylabel,fill=colors)
+
+#The legend can be positioned as either:
+#bottomright, bottom, bottomleft, left, topleft, top, topright, right, center
+
+#R BAR CHART
+#Use the barplot() function to draw a vertical bar chart
+
+B<-c('Germany','Belgium','Sweden','France')
+D<-c(200,400,600,800)
+barplot(D,names.arg=B)
+
+#names.arg defines the names of each observation in the x-axis
+#BAR COLOR
+
+x<-c('Germany','Belgium','Sweden','France')
+y<-c(200,400,600,800)
+barplot(y,names.arg=x, col=c('grey','lightblue',
+                             'lightgreen','pink'))
+barplot(x,y)
+title( main='EUROPEAN COUNTRIES')
+barplot(x,y, main='EUROPEAN COUNTRIES',xlab= 'COUNTRY'
+        ,ylab='VALUES')
+
+#If you want the bars to be displayed horizontally instead of vertically, use horiz=TRUE:
+
+x <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x, horiz = TRUE)
+barplot(y, names.arg = x, width = c(1,2,3,4))
+barplot(y, names.arg = x, density = 10)
+barplot(y,names.arg=x, horiz=TRUE, col=c('grey',
+                                         'lightblue','lightgreen','pink'))
+barplot(x,y)
+title(x,y, main= 'CLASS')
+
+#R STATISTICS
+mtcars
+
+#You can use the question mark (?) to get information about the mtcars data set
+?mtcars
+
+Data_Cars<-mtcars
+
+#Use the dim() function to find the dimensions of the data set, and the names() function to view the names of the variables
+dim(Data_Cars)
+names(Data_Cars)
+rownames(Data_Cars)
+View(Data_Cars)
+Data_Cars$cyl
+sort(Data_Cars$cyl)
+
+#Analyze the data
+
+summary(Data_Cars)
+
+#Find the largest and smallest value of the variable hp (horsepower).
+
+Data_Cars <- mtcars
+
+max(Data_Cars$hp)
+min(Data_Cars$hp)
+
+#For example, we can use the which.max() and which.min() functions to find the index position of the max and min value in the table
+Data_Cars <- mtcars
+
+which.max(Data_Cars$hp)
+which.min(Data_Cars$hp)
+
+#Or even better, combine which.max() and which.min() with the rownames() function to get the name of the car with the largest and smallest horsepower:
+
+Data_Cars <- mtcars
+
+rownames(Data_Cars)[which.max(Data_Cars$hp)]
+rownames(Data_Cars)[which.min(Data_Cars$hp)]
+
+#R MEAN
+#To calculate the average value (mean) of a variable from the mtcars data set, find the sum of all values, and divide the sum by the number of values.
+
+Data_Cars<-mtcars
+mean(Data_Cars$wt)
+
+#Find the mid point value of weight (wt):
+
+Data_Cars <- mtcars
+
+median(Data_Cars$wt)
+
+#R MODE
+Data_Cars <- mtcars
+
+names(sort(-table(Data_Cars$wt)))[1]
+
+#R PERCENTILES; c() specifies which percentile you want
+
+Data_Cars <- mtcars
+quantile(Data_Cars$wt, c(0.75))
+quantile(Data_Cars$wt, c(0.50))
+
+#If you run the quantile() function without specifying the c() parameter, you will get the percentiles of 0, 25, 50, 75 and 100:
+
+Data_Cars <- mtcars
+
+quantile(Data_Cars$wt)
